@@ -12,20 +12,14 @@
 
 #include "header.h"
 
-int main(int argc, char **argv) 
+int	main(void)
 {
 	t_mlx	mlx;
 	t_pars	*pars;
 
-    if (argc != 2)
-    {
-        fprintf(stderr, "Usage: %s <scene.rt>\n", argv[0]);
-        return (1);
-    }
-
 	initialize_mlx(&mlx);
 	pars = NULL;
-    parse_file(argv[1], &pars);
+	parsing(&pars);
 	lexer(&mlx, pars);
 	init_scene(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.image.img, 0, 0);

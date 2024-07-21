@@ -12,35 +12,38 @@
 
 #include "header.h"
 
-void add_light(char **split, t_pars **scene)
+//AMBIENT LIGHT:
+//A		0.2		255,255,255
+void	add_amb_light_parsing(t_pars **pars)
 {
-    t_elem elem;
+	t_elem	elem;
 
-    elem.type = LIGHT_H
-    elem.center = vec_parse(split[1]);
-    elem.brightness = parse_float(split[2]);
-    elem.color_range255 = vec_parse(split[3]);
-    add_element(scene, elem);
+	elem.type = AMBIENT;
+	elem.brightness = 0.2;
+	create_tupple(&elem.color_range255, 255, 255, 255);
+	add_element_to_pars_list(elem, pars);
 }
 
-void add_ambient_light(char **split, t_pars **scene)
+//DIFFUSE LIGHT:
+//L		-1.0,0.0,-5.0	1
+void	add_dif_light_parsing(t_pars **pars)
 {
-    t_elem elem;
+	t_elem	elem;
 
-    elem.type = AMBIENT;
-    elem.brightness = parse_float(split[1]);
-    elem.color_range255 = vec_parse(split[2]);
-    add_element(scene, elem);
+	elem.type = DIFFUSE;
+	elem.brightness = 1;
+	create_tupple(&elem.center, -1, 0, -5);
+	add_element_to_pars_list(elem, pars);
 }
 
-void add_camera(char **split, t_pars **scene)
+//SPOT BRIGHTNESS
+//SB	1.0		200.0
+void	add_spec_light_parsing(t_pars **pars)
 {
-    t_elem elem;
+	t_elem	elem;
 
-    elem.type = CAMERA;
-    elem.center = vec_parse(split[1]);
-    elem.orientation = vec_parse(split[2]);
-    elem.fov_in_deg = parse_float(split[3]);
-    add_element(scene, elem);
+	elem.type = SPECULAR;
+	elem.brightness = 1;
+	elem.shine = 200;
+	add_element_to_pars_list(elem, pars);
 }
-

@@ -36,26 +36,14 @@ typedef struct s_pars
 	struct s_pars	*next;
 }		t_pars;
 
-// -- Main
-void parse_file(char *file, t_pars **scene);
-
-// -- Utils
-// void	add_element_to_pars_list(t_elem elem, t_pars **pars)
-
-// -- Add light
-void add_light(char **split, t_pars **scene);
-void add_ambient_light(char **split, t_pars **scene);
-void add_camera(char **split, t_pars **scene);
-
-// -- Add other
-void add_sphere(char **split, t_pars **scene);
-void add_plane(char **split, t_pars **scene);
-void add_cylinder(char **split, t_pars **scene);
-
-// t_vec vec_parse(char *s);
-// float parse_float(char *s);
-// int parse_int(char *s);
-// void add_element(t_pars **scene, t_elem elem);
-// void exit_error(const char *message);
+void	parsing(t_pars **pars);
+void	add_cam_parsing(t_pars **pars);
+void	add_cylinder_parsing(t_pars **pars);
+void	add_sphere_parsing(t_pars **pars);
+void	add_plane_parsing(t_pars **pars);
+void	add_amb_light_parsing(t_pars **pars);
+void	add_dif_light_parsing(t_pars **pars);
+void	add_spec_light_parsing(t_pars **pars);
+void	add_element_to_pars_list(t_elem elem, t_pars **pars);
 
 #endif
