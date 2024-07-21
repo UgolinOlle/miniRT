@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+     */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:58:52 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/08/30 00:00:36 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/07/21 16:20:05 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_putstr_fd(char *s, int fd);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
