@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+     */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:58:52 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2024/07/21 16:56:09 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/21 18:50:44 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

@@ -6,7 +6,7 @@
 /*   By: uolle <uolle>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 16:52:22 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/21 16:55:15 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/21 18:51:09 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ float	ft_atof(const char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 		sign = 1 - 2 * (*str++ == '-');
-	while (*str && isdigit((unsigned char)*str))
+	while (*str && ft_isdigit((unsigned char)*str))
 	{
 		res = res * 10.0 + (*str - '0');
 		str++;
