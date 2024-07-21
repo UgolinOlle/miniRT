@@ -6,11 +6,21 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 21:14:48 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/10/06 13:46:50 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/07/21 18:52:20 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 void	ft_free_buffer(t_list **buffer)
 {
