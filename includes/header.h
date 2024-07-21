@@ -13,6 +13,7 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+// -- Libs
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
@@ -20,6 +21,9 @@
 # include <unistd.h>
 # include <stdbool.h>
 
+// -- Custom
+# include "../libs/libft/includes/libft.h"
+# include "../libs/get_next_line/includes/get_next_line.h"
 # include "vector.h"
 # include "matrix.h"
 # include "shapes.h"

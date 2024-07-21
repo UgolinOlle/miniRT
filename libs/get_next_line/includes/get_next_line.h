@@ -32,7 +32,6 @@ typedef struct s_list
 
 // -- Main function
 char				*get_next_line(int fd);
-int					ft_strlen(char *str);
 void				ft_radd(int fd, t_list **buffer, int byte_readed);
 void				ft_free_buffer(t_list **buffer);
 
