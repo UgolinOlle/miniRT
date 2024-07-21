@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/21 16:23:45 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/21 23:38:40 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	parsing(t_pars **pars, char *line)
 {
-	if (line[0] == 'C')
+	if (line == NULL || line[0] == '\0' || line[0] == '#')
+		return ;
+	else if (line[0] == 'C')
 		add_cam_parsing(pars, line);
 	else if (line[0] == 's' && line[1] == 'p')
 		add_sphere_parsing(pars, line);
@@ -28,22 +30,26 @@ static void	parsing(t_pars **pars, char *line)
 		add_dif_light_parsing(pars, line);
 	else if (line[0] == 'S')
 		add_spec_light_parsing(pars, line);
+	else
+		fprintf(stderr, "Error: Unknown identifier\n");
 }
 
 void	parse_file(const char *filename, t_pars **pars)
 {
 	int		fd;
 	char	*line;
+	int		tmp;
 
 	fd = open(filename, O_RDONLY);
+	tmp = 0;
 	if (fd < 0)
 	{
 		perror("Error opening file");
 		exit(EXIT_FAILURE);
 	}
-	line = get_next_line(fd);
-	while (line != NULL)
+	while (tmp != 1)
 	{
+		line = get_next_line(fd);
 		parsing(pars, line);
 		free(line);
 	}

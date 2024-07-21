@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_other.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: uolle <uolle>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/21 18:48:56 by uolle            ###   ########.fr       */
+/*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
+/*   Updated: 2024/07/21 21:43:56 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,26 @@ void	add_cam_parsing(t_pars **pars, char *line)
 
 	elem.type = CAMERA;
 	ft_split_tokens(line + 2, tokens, 3);
-	ft_parse_vector(tokens[0], elem.center);
-	ft_parse_vector(tokens[1], elem.orientation);
-	len = sqrtf(dot_product(elem.orientation, elem.orientation));
-	if (len > 1 + EPSILON || len < 1 - EPSILON)
+	if (tokens[0])
+		ft_parse_vector(tokens[0], elem.center);
+	else
+		fprintf(stderr, "Error: Missing camera center\n");
+	if (tokens[1])
 	{
-		printf("Camera orientation not normalised (%f)\n", len);
-		exit(2);
+		ft_parse_vector(tokens[1], elem.orientation);
+		len = sqrtf(dot_product(elem.orientation, elem.orientation));
+		if (len > 1 + EPSILON || len < 1 - EPSILON)
+		{
+			printf("Camera orientation not normalised (%f)\n", len);
+			exit(2);
+		}
 	}
-	elem.fov_in_deg = ft_atoi(tokens[2]);
+	else
+		fprintf(stderr, "Error: Missing camera orientation\n");
+	if (tokens[2])
+		elem.fov_in_deg = ft_atoi(tokens[2]);
+	else
+		fprintf(stderr, "Error: Missing camera field of view\n");
 	if (elem.fov_in_deg < 0 + EPSILON)
 		elem.fov_in_deg += EPSILON;
 	if (elem.fov_in_deg > 180 - EPSILON)
@@ -37,7 +48,7 @@ void	add_cam_parsing(t_pars **pars, char *line)
 }
 
 // CYLINDER
-// cy	0,0,0		0,0,1		2		3		0,255,0
+// cy 0,0,0 0,0,1 2 3 0,255,0
 void	add_cylinder_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
@@ -64,7 +75,7 @@ void	add_cylinder_parsing(t_pars **pars, char *line)
 }
 
 // SPHERE
-// sp	2,0,0	5	0,0,255
+// sp 2,0,0 5 0,0,255
 void	add_sphere_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
@@ -82,7 +93,7 @@ void	add_sphere_parsing(t_pars **pars, char *line)
 }
 
 // PLANE
-// pl	0,0,-20		0,0,1		255,255,255
+// pl 0,0,-20 0,0,1 255,255,255
 void	add_plane_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
