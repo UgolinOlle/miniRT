@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+     */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:58:52 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2024/07/21 16:20:05 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/21 16:56:09 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_trim(char *str);
+float	ft_atof(const char *str);
 
 #endif
