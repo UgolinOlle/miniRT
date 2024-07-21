@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:55:23 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 01:34:31 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 02:59:26 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	lexer(&mlx, pars);
 	init_scene(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.image.img, 0, 0);
+	mlx_hook(mlx.win, 2, 1, key_press_hook, &mlx);
+	mlx_hook(mlx.win, 17, 0L, x_button, &mlx);
 	mlx_loop(mlx.mlx);
 	clean(&mlx);
 	return (0);

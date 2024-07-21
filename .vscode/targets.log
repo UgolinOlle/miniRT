@@ -1,0 +1,1241 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make -C libs/libft
+ 
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+ 
+# Make data base, printed on Mon Jul 22 02:58:23 2024
+
+# Variables
+
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# makefile (from 'Makefile', line 27)
+AR = ar rcs
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# makefile (from 'Makefile', line 13)
+SRC_DIR = srcs
+# environment
+LC_NAME = en_US.UTF-8
+# environment
+LC_NUMERIC = en_US.UTF-8
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/artclave/Desktop/ugo_minirt
+# environment
+LC_ADDRESS = en_US.UTF-8
+# environment
+LIBVIRT_DEFAULT_URI = qemu:///system
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# makefile (from 'Makefile', line 14)
+OBJ_DIR = objs
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# makefile (from 'Makefile', line 23)
+INC_FLAGS = -I $(INC_DIR)
+# default
+.VARIABLES := 
+# environment
+PWD = /home/artclave/Desktop/ugo_minirt
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/home/artclave/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/artclave/Desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/artclave/.config/Code/CachedData/5437499feb04f7a586f677b155b039bc2b3669eb
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+# environment
+LANG = C
+# environment
+XAUTHORITY = /home/artclave/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.125
+# makefile
+MAKEFLAGS = pqrRw
+# makefile (from 'Makefile', line 32)
+BLUE = \033[0;94m
+# makefile
+CURDIR := /home/artclave/Desktop/ugo_minirt/libs/libft
+# makefile (from 'Makefile', line 15)
+INC_DIR = includes
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrRw
+# environment
+SSH_AUTH_SOCK = /run/user/103610/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 3428145
+# environment
+KRB5CCNAME = FILE:/tmp/krb5cc_103610_t2QT4m
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/z1t3c3.42bangkok.com:@/tmp/.ICE-unix/3424861,unix/z1t3c3.42bangkok.com:/tmp/.ICE-unix/3424861
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/103610/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 1
+# makefile (from 'Makefile', line 17)
+SRC_DIRS = str nbr file misc mem
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/43e2a5af_24ee_4f52_b9e4_d57be53e1217
+# environment
+MAKELEVEL := 1
+# makefile (from 'Makefile', line 29)
+MKDIR = mkdir -p
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/artclave/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LANGUAGE = en_US:
+# environment
+LC_MONETARY = en_US.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+LC_TIME = en_US.UTF-8
+# makefile (from 'Makefile', line 19)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
+# environment
+INVOCATION_ID = 11532449b39242d2a7f994012417a247
+# makefile (from 'Makefile', line 33)
+GREEN = \033[0;92m
+# environment
+DOCKER_HOST = unix:///run/user/103610/docker.sock
+# environment
+LC_TELEPHONE = en_US.UTF-8
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 25)
+NAME = libft.a
+# environment
+GTK_IM_MODULE = ibus
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = artclave
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 3424886
+# makefile (from 'Makefile', line 28)
+RM = rm -rf
+# environment
+DISPLAY = :0
+# environment
+USER = artclave
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# makefile (from 'Makefile', line 18)
+SRC_FILES = $(foreach dir,$(SRC_DIRS),$(wildcard $(SRC_DIR)/$(dir)/*.c))
+# environment
+MANAGERPID = 3424039
+# environment
+DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
+# environment
+LC_MEASUREMENT = en_US.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3428145
+# environment
+_ = /usr/bin/code
+# makefile (from 'Makefile', line 31)
+RESET = \033[0m
+# environment
+LC_PAPER = en_US.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/103610
+# makefile (from 'Makefile', line 22)
+CFLAGS = -Wall -Werror -Wextra
+# environment
+GPG_AGENT_INFO = /run/user/103610/gnupg/S.gpg-agent:0:1
+# environment
+COLORTERM = truecolor
+# environment
+JOURNAL_STREAM = 8:12396940
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/artclave
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/103610/vscode-e449c818-1.90-main.sock
+# environment
+TERM = xterm-256color
+# environment
+FT_HOOK_PATHNAME = login-user.d
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+FT_HOOK_NAME = login-user
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/artclave
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 21)
+CC = gcc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = en_US.UTF-8
+# variable set hash-table stats:
+ 
+# Load=133/1024=13%, Rehash=0, Collisions=16/189=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# srcs/nbr (device 2064, inode 29385007): 5 files, no impossibilities.
+# . (device 2064, inode 4202817): 5 files, no impossibilities.
+# srcs/str (device 2064, inode 3765): 20 files, no impossibilities.
+# srcs/mem (device 2064, inode 21092820): 9 files, no impossibilities.
+# srcs/misc (device 2064, inode 25165979): 8 files, no impossibilities.
+# srcs/file (device 2064, inode 16907608): 6 files, no impossibilities.
+# srcs (device 2064, inode 12586758): No files, no impossibilities so far.
+
+# 53 files, no impossibilities in 7 directories.
+
+# Implicit Rules
+
+objs/%.o: srcs/%.c
+#  recipe to execute (from 'Makefile', line 42):
+	@$(MKDIR) $(dir $@)
+	@$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
+	@echo "$(BLUE)[INFO] - Compiling: $<$(RESET)"
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+objs/str/ft_strdup.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/mem/ft_memcmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/misc/ft_ispsace.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+libft.a: objs/str/ft_split.o objs/str/ft_strchr.o objs/str/ft_strcmp.o objs/str/ft_strdup.o objs/str/ft_striteri.o objs/str/ft_strjoin.o objs/str/ft_strlcat.o objs/str/ft_strlcpy.o objs/str/ft_strlen.o objs/str/ft_strmapi.o objs/str/ft_strncmp.o objs/str/ft_strnstr.o objs/str/ft_strrchr.o objs/str/ft_strtrim.o objs/str/ft_substr.o objs/str/ft_tolower.o objs/str/ft_toupper.o objs/str/ft_trim.o objs/nbr/ft_atof.o objs/nbr/ft_atoi.o objs/nbr/ft_itoa.o objs/file/ft_putchar_fd.o objs/file/ft_putendl_fd.o objs/file/ft_putnbr_fd.o objs/file/ft_putstr_fd.o objs/misc/ft_isalnum.o objs/misc/ft_isalpha.o objs/misc/ft_isascii.o objs/misc/ft_isdigit.o objs/misc/ft_isprint.o objs/misc/ft_ispsace.o objs/mem/ft_bzero.o objs/mem/ft_calloc.o objs/mem/ft_memchr.o objs/mem/ft_memcmp.o objs/mem/ft_memcpy.o objs/mem/ft_memmove.o objs/mem/ft_memset.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/10=0%
+#  recipe to execute (from 'Makefile', line 38):
+	@$(AR) $@ $^
+	@echo "$(GREEN)[OK] - Libft has been created successfully.$(RESET)"
+
+# Not a target:
+srcs/str/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-22 02:57:56.895545989
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+objs/str/ft_strlcpy.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/misc/ft_isalpha.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/file/ft_putchar_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_toupper.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_trim.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/file/ft_putnbr_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/mem/ft_memcpy.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/nbr/ft_atoi.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-22 02:57:56.895545989
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 47):
+	@$(RM) $(OBJ_DIR)
+	@echo "$(GREEN)[OK] - Object files have been removed.$(RESET)"
+
+# Not a target:
+objs/misc/ft_isalnum.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/nbr/ft_atof.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strjoin.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strrchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_tolower.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strlen.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/nbr/ft_itoa.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_substr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strcmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strncmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/misc/ft_isprint.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strlcat.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: libft.a
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/10=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 51):
+	@$(RM) $(NAME)
+	@echo "$(GREEN)[OK] - Libft has been removed correctly.$(RESET)"
+
+# Not a target:
+objs/mem/ft_memmove.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/mem/ft_memchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strnstr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/file/ft_putstr_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_striteri.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+objs/str/ft_split.o: srcs/str/ft_split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'str/ft_split'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objs/str/ft_split.o
+# automatic
+# * := str/ft_split
+# automatic
+# < := srcs/str/ft_split.c
+# automatic
+# + := srcs/str/ft_split.c
+# automatic
+# % := 
+# automatic
+# ^ := srcs/str/ft_split.c
+# automatic
+# ? := srcs/str/ft_split.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=6/22=27%
+#  recipe to execute (from 'Makefile', line 42):
+	@$(MKDIR) $(dir $@)
+	@$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
+	@echo "$(BLUE)[INFO] - Compiling: $<$(RESET)"
+
+# Not a target:
+objs/file/ft_putendl_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/mem/ft_memset.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strtrim.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/misc/ft_isascii.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/str/ft_strmapi.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+# Not a target:
+objs/mem/ft_bzero.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/mem/ft_calloc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/misc/ft_isdigit.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=48/1024=5%, Rehash=0, Collisions=2/109=2%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 101 / storage = 1533 B / avg = 15 B
+# current buf: size = 8162 B / used = 1533 B / count = 101 / avg = 15 B
+
+# strcache performance: lookups = 130 / hit rate = 22%
+# hash-table stats:
+# Load=101/8192=1%, Rehash=0, Collisions=1/130=1%
+# Finished Make data base on Mon Jul 22 02:58:23 2024
+
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Mon Jul 22 02:58:23 2024
+
+# Variables
+
+# makefile (from 'Makefile', line 8)
+OBJ = obj
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# makefile (from 'Makefile', line 7)
+SRC = src
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
+LC_NAME = en_US.UTF-8
+# environment
+LC_NUMERIC = en_US.UTF-8
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/artclave/Desktop/ugo_minirt
+# makefile (from 'Makefile', line 17)
+LIBS = -L$(LIB_DIR) -lmlx_Linux -lXext -lX11 -lm -lbsd -L$(GNL_DIR) -lget_next_line -L$(LIBFT_DIR) -lft
+# environment
+LC_ADDRESS = en_US.UTF-8
+# environment
+LIBVIRT_DEFAULT_URI = qemu:///system
+# default
+MAKE_COMMAND := make
+# makefile (from 'Makefile', line 15)
+GNL_LIB = $(GNL_DIR)/libget_next_line.a
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/artclave/Desktop/ugo_minirt
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+ 
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/home/artclave/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/artclave/Desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/artclave/.config/Code/CachedData/5437499feb04f7a586f677b155b039bc2b3669eb
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+# makefile (from 'Makefile', line 21)
+OBJs := obj/debug/print.o obj/debug/print_set_up.o obj/lexer/adds.o obj/lexer/main.o obj/lexer/utils.o obj/main.o obj/matrix/matrix_inversion.o obj/matrix/matrix_op.o obj/matrix/matrix_utils.o obj/matrix/tranform.o obj/matrix/transform_utils.o obj/parsing/add_light.o obj/parsing/add_other.o obj/parsing/main.o obj/parsing/utils.o obj/render/camera.o obj/render/light.o obj/render/light_utils.o obj/render/ray.o obj/render/scene.o obj/render/shape.o obj/utils/clean.o obj/utils/mlx_utils.o obj/vectors/math_utils.o obj/vectors/vector_math.o obj/vectors/vector_op.o obj/vectors/vector_utils.o
+# environment
+LANG = C
+# environment
+XAUTHORITY = /home/artclave/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.125
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/artclave/Desktop/ugo_minirt
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/103610/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 3428145
+# environment
+KRB5CCNAME = FILE:/tmp/krb5cc_103610_t2QT4m
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/z1t3c3.42bangkok.com:@/tmp/.ICE-unix/3424861,unix/z1t3c3.42bangkok.com:/tmp/.ICE-unix/3424861
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/103610/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/43e2a5af_24ee_4f52_b9e4_d57be53e1217
+# environment
+MAKELEVEL := 0
+# makefile (from 'Makefile', line 18)
+MKDIR = mkdir -p
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/artclave/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LANGUAGE = en_US:
+# environment
+LC_MONETARY = en_US.UTF-8
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 11)
+LIBFT_DIR = libs/libft
+# makefile (from 'Makefile', line 4)
+LDLIBS = -lm
+# environment
+LC_TIME = en_US.UTF-8
+# environment
+INVOCATION_ID = 11532449b39242d2a7f994012417a247
+# environment
+DOCKER_HOST = unix:///run/user/103610/docker.sock
+# environment
+LC_TELEPHONE = en_US.UTF-8
+# automatic
+?F = $(notdir $?)
+# environment
+GTK_IM_MODULE = ibus
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = artclave
+# makefile (from 'Makefile', line 2)
+CPPFLAGS = -Iincludes -Isrc -Ilibs/get_next_line/includes -Ilibs/libft/includes
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 3424886
+# environment
+DISPLAY = :0
+# environment
+USER = artclave
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# 'override' directive
+.SHELLSTATUS := 0
+# makefile (from 'Makefile', line 14)
+GNL_DIR = libs/get_next_line
+# environment
+MANAGERPID = 3424039
+# environment
+DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
+# environment
+LC_MEASUREMENT = en_US.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3428145
+# environment
+_ = /usr/bin/code
+# environment
+LC_PAPER = en_US.UTF-8
+# makefile (from 'Makefile', line 9)
+BIN = rt
+# environment
+XDG_RUNTIME_DIR = /run/user/103610
+# makefile (from 'Makefile', line 3)
+CFLAGS = -Wall -Wextra -Werror
+# environment
+GPG_AGENT_INFO = /run/user/103610/gnupg/S.gpg-agent:0:1
+# environment
+COLORTERM = truecolor
+# environment
+JOURNAL_STREAM = 8:12396940
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/artclave
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/103610/vscode-e449c818-1.90-main.sock
+# environment
+TERM = xterm-256color
+# makefile (from 'Makefile', line 20)
+SRCs := src/debug/print.c src/debug/print_set_up.c src/lexer/adds.c src/lexer/main.c src/lexer/utils.c src/main.c src/matrix/matrix_inversion.c src/matrix/matrix_op.c src/matrix/matrix_utils.c src/matrix/tranform.c src/matrix/transform_utils.c src/parsing/add_light.c src/parsing/add_other.c src/parsing/main.c src/parsing/utils.c src/render/camera.c src/render/light.c src/render/light_utils.c src/render/ray.c src/render/scene.c src/render/shape.c src/utils/clean.c src/utils/mlx_utils.c src/vectors/math_utils.c src/vectors/vector_math.c src/vectors/vector_op.c src/vectors/vector_utils.c
+# environment
+FT_HOOK_PATHNAME = login-user.d
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 12)
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+FT_HOOK_NAME = login-user
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# makefile (from 'Makefile', line 5)
+LIB_DIR = libs
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/artclave
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 1)
+CC = gcc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = en_US.UTF-8
+# variable set hash-table stats:
+# Load=135/1024=13%, Rehash=0, Collisions=35/192=18%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 2064, inode 8468959): No files, no impossibilities so far.
+# . (device 2064, inode 8468948): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+obj/%.o: src/%.c
+#  recipe to execute (from 'Makefile', line 29):
+ 
+	$(MKDIR) $(dir $@)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+libs/libmlx_Linux.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/matrix/matrix_op.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/matrix/matrix_inversion.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/lexer/utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/utils/mlx_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/render/scene.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/lexer/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/parsing/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/vectors/vector_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-22 02:57:56.891545858
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/vectors/vector_op.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/parsing/utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/render/light_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/matrix/matrix_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 39):
+	$(RM) -R $(BIN)
+	$(MAKE) -C $(GNL_DIR) clean
+	$(MAKE) -C $(LIBFT_DIR) clean
+
+# Not a target:
+obj/render/shape.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+rt: obj/debug/print.o obj/debug/print_set_up.o obj/lexer/adds.o obj/lexer/main.o obj/lexer/utils.o obj/main.o obj/matrix/matrix_inversion.o obj/matrix/matrix_op.o obj/matrix/matrix_utils.o obj/matrix/tranform.o obj/matrix/transform_utils.o obj/parsing/add_light.o obj/parsing/add_other.o obj/parsing/main.o obj/parsing/utils.o obj/render/camera.o obj/render/light.o obj/render/light_utils.o obj/render/ray.o obj/render/scene.o obj/render/shape.o obj/utils/clean.o obj/utils/mlx_utils.o obj/vectors/math_utils.o obj/vectors/vector_math.o obj/vectors/vector_op.o obj/vectors/vector_utils.o libs/libmlx_Linux.a
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJs) $(LIBS) -o $@ $(LDLIBS)
+
+libs/libft/libft.a:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Modification time never checked.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := libs/libft/libft.a
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/14=21%
+#  recipe to execute (from 'Makefile', line 36):
+	$(MAKE) -C $(LIBFT_DIR)
+
+# Not a target:
+obj/vectors/math_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/debug/print_set_up.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/lexer/adds.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/matrix/tranform.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: libs/libft/libft.a libs/get_next_line/libget_next_line.a rt
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 44):
+	$(RM) -R $(OBJ)
+	$(MAKE) -C $(GNL_DIR) fclean
+	$(MAKE) -C $(LIBFT_DIR) fclean
+
+# Not a target:
+obj/parsing/add_light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/debug/print.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/render/camera.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/render/light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+libs/get_next_line/libget_next_line.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 33):
+	$(MAKE) -C $(GNL_DIR)
+
+# Not a target:
+obj/utils/clean.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/render/ray.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/matrix/transform_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/parsing/add_other.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/vectors/vector_math.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=39/1024=4%, Rehash=0, Collisions=0/93=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 53 / storage = 829 B / avg = 15 B
+# current buf: size = 8162 B / used = 829 B / count = 53 / avg = 15 B
+
+# strcache performance: lookups = 78 / hit rate = 32%
+# hash-table stats:
+# Load=53/8192=1%, Rehash=0, Collisions=0/78=0%
+# Finished Make data base on Mon Jul 22 02:58:23 2024
+
+ 
