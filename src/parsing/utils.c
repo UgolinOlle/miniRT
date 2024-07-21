@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle>                              +#+  +:+       +#+        */
+/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/21 18:25:36 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 01:00:28 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,14 @@ void	add_element_to_pars_list(t_elem elem, t_pars **pars)
 	}
 }
 
-void	ft_parse_vector(char *str, t_vec vec)
+void	ft_parse_vector(char **str, t_vec vec)
 {
-	char	*token;
-
-	token = ft_strtok(str, ",");
-	vec[0] = ft_atof(token);
-	token = ft_strtok(NULL, ",");
-	vec[1] = ft_atof(token);
-	token = ft_strtok(NULL, ",");
-	vec[2] = ft_atof(token);
+	int	i;
+	
+	i = -1;
+	while (++i < 3){
+		vec[i] = ft_atof(str[i]);
+	}
 }
 
 void	ft_split_tokens(char *line, char *tokens[], int max_tokens)

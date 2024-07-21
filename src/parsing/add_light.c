@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_light.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle>                              +#+  +:+       +#+        */
+/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:41:01 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/21 21:41:01 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 01:33:36 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 void	add_amb_light_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
-	char	*tokens[2];
-	char	*color_tokens[3];
+	char	*tokens[4];
 
 	elem.type = AMBIENT;
-	ft_split_tokens(line + 2, tokens, 2);
+	ft_split_tokens(line + 2, tokens, 4);
 	elem.brightness = ft_atof(tokens[0]);
-	ft_split_tokens(tokens[1], color_tokens, 3);
-	create_tupple(&elem.color_range255, ft_atoi(color_tokens[0]),
-		ft_atoi(color_tokens[1]), ft_atoi(color_tokens[2]));
+	create_tupple(&elem.color_range255, ft_atoi(tokens[1]),
+		ft_atoi(tokens[2]), ft_atoi(tokens[3]));
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -32,16 +30,14 @@ void	add_amb_light_parsing(t_pars **pars, char *line)
 void	add_dif_light_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
-	char	*tokens[5];
-	char	*color_tokens[3];
+	char	*tokens[7];
 
 	elem.type = DIFFUSE;
-	ft_split_tokens(line + 2, tokens, 5);
-	ft_parse_vector(tokens[0], elem.center);
-	elem.brightness = ft_atof(tokens[1]);
-	ft_split_tokens(tokens[2], color_tokens, 3);
-	create_tupple(&elem.color_range255, ft_atoi(color_tokens[0]),
-		ft_atoi(color_tokens[1]), ft_atoi(color_tokens[2]));
+	ft_split_tokens(line + 2, tokens, 7);
+	ft_parse_vector(&tokens[0], elem.center);
+	elem.brightness = ft_atof(tokens[3]);
+	create_tupple(&elem.color_range255, ft_atoi(tokens[4]),
+		ft_atoi(tokens[5]), ft_atoi(tokens[6]));
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -50,7 +46,7 @@ void	add_dif_light_parsing(t_pars **pars, char *line)
 void	add_spec_light_parsing(t_pars **pars, char *line)
 {
 	t_elem	elem;
-	char	*tokens[2];
+	char	*tokens[3];
 
 	elem.type = SPECULAR;
 	ft_split_tokens(line + 2, tokens, 2);

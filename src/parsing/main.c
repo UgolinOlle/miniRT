@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/21 23:38:40 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 01:33:16 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	parse_file(const char *filename, t_pars **pars)
 	while (tmp != 1)
 	{
 		line = get_next_line(fd);
+		if (!line)
+			break ;
 		parsing(pars, line);
 		free(line);
 	}

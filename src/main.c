@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle>                              +#+  +:+       +#+        */
+/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:55:23 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/21 18:59:47 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 01:34:31 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(int argc, char **argv)
 	pars = NULL;
 	parse_file(argv[1], &pars);
 	lexer(&mlx, pars);
-	printf("Parsing done\n");
 	init_scene(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.image.img, 0, 0);
 	mlx_loop(mlx.mlx);
