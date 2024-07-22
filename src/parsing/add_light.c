@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:41:01 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 01:33:36 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:23:28 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	add_amb_light_parsing(t_pars **pars, char *line)
 	elem.type = AMBIENT;
 	ft_split_tokens(line + 2, tokens, 4);
 	elem.brightness = ft_atof(tokens[0]);
-	create_tupple(&elem.color_range255, ft_atoi(tokens[1]),
-		ft_atoi(tokens[2]), ft_atoi(tokens[3]));
+	printf("tokens[0]: %s\n", tokens[0]);
+	printf("tokens[1]: %s\n", tokens[1]);
+	printf("tokens[2]: %s\n", tokens[2]);
+	create_tupple(&elem.color_range255, ft_atoi(tokens[1]), ft_atoi(tokens[2]),
+		ft_atoi(tokens[3]));
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -36,8 +39,8 @@ void	add_dif_light_parsing(t_pars **pars, char *line)
 	ft_split_tokens(line + 2, tokens, 7);
 	ft_parse_vector(&tokens[0], elem.center);
 	elem.brightness = ft_atof(tokens[3]);
-	create_tupple(&elem.color_range255, ft_atoi(tokens[4]),
-		ft_atoi(tokens[5]), ft_atoi(tokens[6]));
+	create_tupple(&elem.color_range255, ft_atoi(tokens[4]), ft_atoi(tokens[5]),
+		ft_atoi(tokens[6]));
 	add_element_to_pars_list(elem, pars);
 }
 

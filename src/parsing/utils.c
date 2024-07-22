@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 01:00:28 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:14:38 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 static char	*ft_find_next_token(char *str, const char *delim)
 {
+	if (!str || !delim)
+		return (NULL);
 	while (*str && ft_strchr(delim, *str))
 		str++;
-	if (*str)
-		return (str);
-	else
-		return (NULL);
+	return ((*str) ? str : NULL);
 }
 
 void	add_element_to_pars_list(t_elem elem, t_pars **pars)
@@ -49,24 +48,38 @@ void	add_element_to_pars_list(t_elem elem, t_pars **pars)
 void	ft_parse_vector(char **str, t_vec vec)
 {
 	int	i;
-	
+
 	i = -1;
-	while (++i < 3){
+	while (++i < 3)
+	{
 		vec[i] = ft_atof(str[i]);
 	}
 }
 
-void	ft_split_tokens(char *line, char *tokens[], int max_tokens)
+void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 {
-	int	i;
+	int			i;
+	char		*token;
+	const char	*delim;
 
 	i = 0;
-	tokens[i++] = ft_strtok(line, " ");
+	delim = " \t";
+	while (i < max_tokens && (token = ft_find_next_token(str, delim)) != NULL)
+	{
+		tokens[i] = token;
+		str = token;
+		while (*str && !ft_strchr(delim, *str))
+			str++;
+		if (*str)
+		{
+			*str = '\0';
+			str++;
+		}
+		i++;
+	}
 	while (i < max_tokens)
 	{
-		tokens[i] = ft_strtok(NULL, " ");
-		if (tokens[i] == NULL)
-			break ;
+		tokens[i] = NULL;
 		i++;
 	}
 }
