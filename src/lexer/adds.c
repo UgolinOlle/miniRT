@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer_adds.c                                       :+:      :+:    :+:   */
+/*   adds.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:55:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:56:27 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 17:26:00 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	add_cam_lexer(t_elem element, t_mlx *mlx)
 {
+	static int	added = 0;
+	if (added == 1)
+		return ;
 	cam_transform(&mlx->cam, element.orientation, element.center);
 	mlx->cam.half_window[X] = mlx->win_size[X];
 	mlx->cam.half_window[Y] = mlx->win_size[Y];
 	mlx->cam.fov = to_rad(element.fov_in_deg);
 	calc_pixel_size(&mlx->cam);
+	added = 1;
 }
 
 void	add_sph_lexer(t_elem element, t_mlx *mlx)
@@ -77,19 +81,30 @@ void	add_cyl_lexer(t_elem element, t_mlx *mlx)
 
 void	add_light_lexer(t_elem element, t_light	*light)
 {
+	static	int	added[3];
+
 	if (element.type == AMBIENT)
 	{
+		if (added[0] == 1)
+			return ;
 		scalar_mult(element.color_range255, (1.0f / 255.0f), &light->color);
 		light->ambient = element.brightness;
+		added[0] = 1;
 	}
 	else if (element.type == DIFFUSE)
 	{
+		if (added[1] == 1)
+			return ;
 		copy_t_vec(&light->og, element.center);
 		light->diffuse = element.brightness;
+		added[1] = 1;
 	}
 	else if (element.type == SPECULAR)
 	{
+		if (added[2] == 1)
+			return ;
 		light->specular = element.brightness;
 		light->shine = element.shine;
+		added[2] = 1;
 	}
 }
