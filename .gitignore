@@ -56,3 +56,5 @@ dkms.conf
 minilibx/
 obj/
 rt
+.vscode/
+.idea/
