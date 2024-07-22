@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 14:38:40 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 16:55:07 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 	const char	*delim;
 
 	i = 0;
-	delim = " \t";
+	delim = " \t,";
 	while (i < max_tokens && (token = ft_find_next_token(str, delim)) != NULL)
 	{
 		tokens[i] = token;
