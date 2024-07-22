@@ -6,12 +6,12 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 13:01:04 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/22 21:17:28 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
+/*
 static void	ft_print_vec(t_vec vec)
 {
 	printf("x: %.2f, y: %.2f, z: %.2f\n", vec[0], vec[1], vec[2]);
@@ -37,10 +37,10 @@ static void	ft_print_pars_debug(t_pars *pars)
 		pars = pars->next;
 	}
 }
-
+*/
 static void	parsing(t_pars **pars, char *line)
 {
-	printf("line: %s\n", line);
+	//printf("line: %s\n", line);
 	if (line == NULL || line[0] == '\0' || line[0] == '#')
 		return ;
 	else if (line[0] == 'C')
@@ -82,6 +82,6 @@ void	parse_file(const char *filename, t_pars **pars)
 		parsing(pars, line);
 		free(line);
 	}
-	ft_print_pars_debug(*pars);
+//	ft_print_pars_debug(*pars);
 	close(fd);
 }

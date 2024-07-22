@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:55:23 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 02:59:26 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:04:39 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 		fprintf(stderr, "Error: File extension must be .rt\n");
 		return (1);
 	}
-	initialize_mlx(&mlx);
 	pars = NULL;
 	parse_file(argv[1], &pars);
+	initialize_mlx(&mlx);
 	lexer(&mlx, pars);
 	init_scene(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.image.img, 0, 0);

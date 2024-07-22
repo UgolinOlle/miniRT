@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:11:41 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 17:44:39 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 21:34:06 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void				add_element_to_pars_list(t_elem elem, t_pars **pars);
 char				*ft_strtok(char *str, const char *delim);
 
 // -- Error handling
-int	check_limit_value(float upper, float lower, int type, float value);
-int	check_limit_color(t_vec value);
+void				check_limit_value(int type, float value, t_pars **pars);
+void				check_limit_color(t_vec value, t_pars **pars);
+void				pars_error(char *error_message, t_pars **par);
 
 #endif

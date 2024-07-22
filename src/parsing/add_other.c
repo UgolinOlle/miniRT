@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 21:01:33 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 21:38:28 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,28 @@ void	add_cam_parsing(t_pars **pars, char *line)
 	if (tokens[0])
 		ft_parse_vector(&tokens[0], elem.center);
 	else
-		fprintf(stderr, "Error: Missing camera center\n");
-	printf("cam center: ");
-	print_t_vec(elem.center);
-	printf("\n");
+		pars_error("Error: Missing camera center\n", pars);
+//	printf("cam center: ");
+//	print_t_vec(elem.center);
+//	printf("\n");
 	if (tokens[2])
 	{
 		ft_parse_vector(&tokens[3], elem.orientation);
-		printf("cam orientation: ");
-		print_t_vec(elem.orientation);
-		printf("\n");
+		//printf("cam orientation: ");
+		//print_t_vec(elem.orientation);
+		//printf("\n");
 		len = sqrtf(dot_product(elem.orientation, elem.orientation));
 		if (len > 1 + EPSILON || len < 1 - EPSILON)
-		{
-			printf("Camera orientation not normalised (%f)\n", len);
-			return ;
-		}
+			pars_error("Camera orientation not normalised\n", pars);
 	}
 	else
-		fprintf(stderr, "Error: Missing camera orientation\n");
+		pars_error("Error: Missing camera orientation\n", pars);
 	if (tokens[5])
 		elem.fov_in_deg = ft_atoi(tokens[6]);
 	else
-		fprintf(stderr, "Error: Missing camera field of view\n");
-	printf("fov: %f\n", elem.fov_in_deg);
-	if (check_limit_value(180, 0, CAMERA, elem.fov_in_deg) == 0)
-		return;
+		pars_error("Error: Missing camera field of view\n", pars);
+	//printf("fov: %f\n", elem.fov_in_deg);
+	check_limit_value(CAMERA, elem.fov_in_deg, pars);
 	if (elem.fov_in_deg < 0 + EPSILON)
 		elem.fov_in_deg += EPSILON;
 	if (elem.fov_in_deg > 180 - EPSILON)
@@ -72,21 +68,14 @@ void	add_cylinder_parsing(t_pars **pars, char *line)
 	ft_parse_vector(&tokens[3], elem.orientation);
 	len = sqrtf(dot_product(elem.orientation, elem.orientation));
 	if (len > 1 + EPSILON || len < 1 - EPSILON)
-	{
-		printf("Cylinder orientation not normalised (%f)\n", len);
-		return;
-	}
+		pars_error("Cylinder orientation not normalised\n", pars);
 	elem.diameter = ft_atof(tokens[6]);
 	elem.height = ft_atof(tokens[7]);
 	if (elem.height < 0 || elem.diameter < 0)
-	{
-		perror("Cylinder size values have to be positive\n");
-		return ;
-	}
+		pars_error("Cylinder size values have to be positive\n", pars);
 	create_tupple(&elem.color_range255, ft_atoi(tokens[8]), ft_atoi(tokens[9]),
 		ft_atoi(tokens[10]));
-	if (check_limit_color(elem.color_range255) == 0)
-		return ;
+	check_limit_color(elem.color_range255, pars);
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -104,12 +93,8 @@ void	add_sphere_parsing(t_pars **pars, char *line)
 	create_tupple(&elem.color_range255, ft_atoi(tokens[4]), ft_atoi(tokens[5]),
 		ft_atoi(tokens[6]));
 	if (elem.diameter < 0)
-	{
-		perror("Sphere size values have to be positive\n");
-		return ;
-	}
-	if (check_limit_color(elem.color_range255) == 0)
-		return ;
+		pars_error("Sphere size values have to be positive\n", pars);
+	check_limit_color(elem.color_range255, pars);
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -127,13 +112,9 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	ft_parse_vector(&tokens[3], elem.orientation);
 	len = sqrtf(dot_product(elem.orientation, elem.orientation));
 	if (len > 1 + EPSILON || len < 1 - EPSILON)
-	{
-		printf("Plane orientation not normalised (%f)\n", len);
-		exit(2);
-	}
+		pars_error("Plane orientation not normalised\n", pars);
 	create_tupple(&elem.color_range255, ft_atoi(tokens[6]), ft_atoi(tokens[7]),
 		ft_atoi(tokens[8]));
-	if (check_limit_color(elem.color_range255) == 0)
-		return ;
+	check_limit_color(elem.color_range255, pars);
 	add_element_to_pars_list(elem, pars);
 }

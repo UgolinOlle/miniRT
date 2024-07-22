@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 16:55:07 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 21:21:13 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	ft_parse_vector(char **str, t_vec vec)
 	i = -1;
 	while (++i < 3 && str[i])
 	{
-		printf("str[%d]: %s\n", i, str[i]);
+		//printf("str[%d]: %s\n", i, str[i]);
 		vec[i] = ft_atof(str[i]);
-		printf("vec[%d]: %f\n", i, vec[i]);
+		//printf("vec[%d]: %f\n", i, vec[i]);
 	}
 }
 
