@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 15:10:45 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 17:53:52 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	add_cam_parsing(t_pars **pars, char *line)
 		if (len > 1 + EPSILON || len < 1 - EPSILON)
 		{
 			printf("Camera orientation not normalised (%f)\n", len);
-			exit(2);
+			return ;
 		}
 	}
 	else
@@ -49,6 +49,8 @@ void	add_cam_parsing(t_pars **pars, char *line)
 	else
 		fprintf(stderr, "Error: Missing camera field of view\n");
 	printf("fov: %f\n", elem.fov_in_deg);
+	if (check_limit_value(180, 0, CAMERA, elem.fov_in_deg) == 0)
+		return;
 	if (elem.fov_in_deg < 0 + EPSILON)
 		elem.fov_in_deg += EPSILON;
 	if (elem.fov_in_deg > 180 - EPSILON)
@@ -72,12 +74,19 @@ void	add_cylinder_parsing(t_pars **pars, char *line)
 	if (len > 1 + EPSILON || len < 1 - EPSILON)
 	{
 		printf("Cylinder orientation not normalised (%f)\n", len);
-		exit(2);
+		return;
 	}
 	elem.diameter = ft_atof(tokens[6]);
 	elem.height = ft_atof(tokens[7]);
+	if (elem.height < 0 || elem.diameter < 0)
+	{
+		perror("Cylinder size values have to be positive\n");
+		return ;
+	}
 	create_tupple(&elem.color_range255, ft_atoi(tokens[8]), ft_atoi(tokens[9]),
 		ft_atoi(tokens[10]));
+	if (check_limit_color(elem.color_range255) == 0)
+		return ;
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -94,6 +103,13 @@ void	add_sphere_parsing(t_pars **pars, char *line)
 	elem.diameter = ft_atof(tokens[3]);
 	create_tupple(&elem.color_range255, ft_atoi(tokens[4]), ft_atoi(tokens[5]),
 		ft_atoi(tokens[6]));
+	if (elem.diameter < 0)
+	{
+		perror("Sphere size values have to be positive\n");
+		return ;
+	}
+	if (check_limit_color(elem.color_range255) == 0)
+		return ;
 	add_element_to_pars_list(elem, pars);
 }
 
@@ -117,5 +133,7 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	}
 	create_tupple(&elem.color_range255, ft_atoi(tokens[6]), ft_atoi(tokens[7]),
 		ft_atoi(tokens[8]));
+	if (check_limit_color(elem.color_range255) == 0)
+		return ;
 	add_element_to_pars_list(elem, pars);
 }

@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:11:41 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 00:53:14 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/22 17:44:39 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void				ft_parse_vector(char **str, t_vec vec);
 void				ft_split_tokens(char *line, char *tokens[], int max_tokens);
 void				add_element_to_pars_list(t_elem elem, t_pars **pars);
 char				*ft_strtok(char *str, const char *delim);
+
+// -- Error handling
+int	check_limit_value(float upper, float lower, int type, float value);
+int	check_limit_color(t_vec value);
 
 #endif
