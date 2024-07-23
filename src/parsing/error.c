@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:33:59 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/23 14:13:02 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/23 14:48:35 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	check_limit_value(int type, float value, t_pars **pars)
 
 void	pars_error(char *error_message, t_pars **par)
 {
-	t_pars *temp;
-	int i;
+	t_pars	*temp;
+	int		i;
 
 	i = -1;
 	while (error_message && error_message[++i])
