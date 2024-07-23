@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 21:38:28 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:47:53 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,14 @@ void	add_cam_parsing(t_pars **pars, char *line)
 	char	*tokens[7];
 
 	elem.type = CAMERA;
-	//printf("Splitting tokens\n");
 	ft_split_tokens(line + 2, tokens, 7);
-	//printf("Split done\n");
 	if (tokens[0])
 		ft_parse_vector(&tokens[0], elem.center);
 	else
 		pars_error("Error: Missing camera center\n", pars);
-//	printf("cam center: ");
-//	print_t_vec(elem.center);
-//	printf("\n");
 	if (tokens[2])
 	{
 		ft_parse_vector(&tokens[3], elem.orientation);
-		//printf("cam orientation: ");
-		//print_t_vec(elem.orientation);
-		//printf("\n");
 		len = sqrtf(dot_product(elem.orientation, elem.orientation));
 		if (len > 1 + EPSILON || len < 1 - EPSILON)
 			pars_error("Camera orientation not normalised\n", pars);
@@ -45,7 +37,6 @@ void	add_cam_parsing(t_pars **pars, char *line)
 		elem.fov_in_deg = ft_atoi(tokens[6]);
 	else
 		pars_error("Error: Missing camera field of view\n", pars);
-	//printf("fov: %f\n", elem.fov_in_deg);
 	check_limit_value(CAMERA, elem.fov_in_deg, pars);
 	if (elem.fov_in_deg < 0 + EPSILON)
 		elem.fov_in_deg += EPSILON;
