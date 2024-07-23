@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/23 14:04:29 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/23 14:34:24 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,10 @@ void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 	delim = " \t,";
 	while (i < max_tokens && (token = ft_find_next_token(str, delim)) != NULL)
 	{
-		printf("token = %s\n", token);
 		j = 0;
 		while (token[j] != '\0')
 		{
-			printf("token[j] = %c\n", token[j]);
-			if (!ft_isdigit(token[j]) && token[j] != ',' && token[j] != '.'
+			if (ft_isalpha(token[j]) && token[j] != ',' && token[j] != '.'
 				&& token[j] != ' ')
 				pars_error("Error: Invalid tokens\n", NULL);
 			j++;
