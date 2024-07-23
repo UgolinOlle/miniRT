@@ -6,44 +6,30 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 21:17:28 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:49:27 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-/*
-static void	ft_print_vec(t_vec vec)
+
+static void	ft_parsing_check(t_pars **pars, char *line)
 {
-	printf("x: %.2f, y: %.2f, z: %.2f\n", vec[0], vec[1], vec[2]);
+	if (!ft_isalpha(line[0]) || line[1] != ' ')
+		pars_error("Error: Invalid identifier 1\n", pars);
+	else if (line[0] == 's' && line[1] != 'p' && line[2] != ' ')
+		pars_error("Error: Invalid identifier 2\n", pars);
+	else if (line[0] == 'p' && line[1] != 'l' && line[2] != ' ')
+		pars_error("Error: Invalid identifier 3\n", pars);
+	else if (line[0] == 'c' && line[1] != 'y' && line[2] != ' ')
+		pars_error("Error: Invalid identifier 4\n", pars);
 }
 
-static void	ft_print_pars_debug(t_pars *pars)
-{
-	while (pars)
-	{
-		printf("Element type: %d\n", pars->element.type);
-		printf("Orientation: ");
-		ft_print_vec(pars->element.orientation);
-		printf("Center: ");
-		ft_print_vec(pars->element.center);
-		printf("Color (range 0-255): ");
-		ft_print_vec(pars->element.color_range255);
-		printf("Brightness: %.2f\n", pars->element.brightness);
-		printf("Shine: %.2f\n", pars->element.shine);
-		printf("FOV in degrees: %.2f\n", pars->element.fov_in_deg);
-		printf("Diameter: %.2f\n", pars->element.diameter);
-		printf("Height: %.2f\n", pars->element.height);
-		printf("\n");
-		pars = pars->next;
-	}
-}
-*/
 static void	parsing(t_pars **pars, char *line)
 {
-	//printf("line: %s\n", line);
 	if (line == NULL || line[0] == '\0' || line[0] == '#')
 		return ;
-	else if (line[0] == 'C')
+	ft_parsing_check(pars, line);
+	if (line[0] == 'C')
 		add_cam_parsing(pars, line);
 	else if (line[0] == 's' && line[1] == 'p')
 		add_sphere_parsing(pars, line);
@@ -82,6 +68,5 @@ void	parse_file(const char *filename, t_pars **pars)
 		parsing(pars, line);
 		free(line);
 	}
-//	ft_print_pars_debug(*pars);
 	close(fd);
 }

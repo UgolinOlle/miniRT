@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/22 21:21:13 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/23 14:04:29 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,13 @@ void	ft_parse_vector(char **str, t_vec vec)
 
 	i = -1;
 	while (++i < 3 && str[i])
-	{
-		//printf("str[%d]: %s\n", i, str[i]);
 		vec[i] = ft_atof(str[i]);
-		//printf("vec[%d]: %f\n", i, vec[i]);
-	}
 }
 
 void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 {
 	int			i;
+	int			j;
 	char		*token;
 	const char	*delim;
 
@@ -68,6 +65,16 @@ void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 	delim = " \t,";
 	while (i < max_tokens && (token = ft_find_next_token(str, delim)) != NULL)
 	{
+		printf("token = %s\n", token);
+		j = 0;
+		while (token[j] != '\0')
+		{
+			printf("token[j] = %c\n", token[j]);
+			if (!ft_isdigit(token[j]) && token[j] != ',' && token[j] != '.'
+				&& token[j] != ' ')
+				pars_error("Error: Invalid tokens\n", NULL);
+			j++;
+		}
 		tokens[i] = token;
 		str = token;
 		while (*str && !ft_strchr(delim, *str))
