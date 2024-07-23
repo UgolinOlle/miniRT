@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:50:01 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:52:38 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:19:31 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void	is_point_in_shadow(t_light *light, t_mlx *mlx)
 	if (find_intersection(&shadow_ray, mlx) == TRUE \
 	&& shadow_ray.closest->dist < light_to_point_dist)
 		light->is_shadow = TRUE;
+	clean_ray(&shadow_ray);
 }
