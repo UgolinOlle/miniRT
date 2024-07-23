@@ -58,3 +58,4 @@ obj/
 rt
 .vscode/
 .idea/
+libs/libmlx_Linux.a
