@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/24 12:40:32 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:01:12 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,12 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	ft_split_tokens(line + 3, tokens, 9);
 	ft_parse_vector(&tokens[0], elem.center);
 	ft_parse_vector(&tokens[3], elem.orientation);
+	if (elem.orientation[0] < 1)
+		elem.orientation[0] *= -1;
+	if (elem.orientation[1] < 1)
+		elem.orientation[1] *= -1;
+	if (elem.orientation[2] < 1)
+		elem.orientation[2] *= -1;
 	len = sqrtf(dot_product(elem.orientation, elem.orientation));
 	if (len > 1 + EPSILON || len < 1 - EPSILON)
 		pars_error("Plane orientation not normalised\n", pars);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shape.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:53:05 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:48:40 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 18:43:59 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	intersects_cylinder_caps(t_ray *parent, t_ray *child, t_obj cyl)
 	float	x;
 	float	z;
 
-	if (child->dir[Y] < 0.001 && child->dir[Y] > -0.999)
-		return ;
+	//if (child->dir[Y] < 0.001 && child->dir[Y] > -0.999)
+	//	return ;
 	hit = (cyl.min - child->og[Y]) / child->dir[Y];
 	x = child->og[X] + hit * child->dir[X];
 	z = child->og[Z] + hit * child->dir[Z];

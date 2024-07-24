@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:53:55 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:52:07 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 18:42:17 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	find_intersection(t_ray *parent_ray, t_mlx *mlx)
 			intersects_plane(parent_ray, &child_ray, list->obj);
 		else if (list->obj.type == CYLINDER)
 		{
-			intersects_cylinder_body(parent_ray, &child_ray, list->obj);
 			intersects_cylinder_caps(parent_ray, &child_ray, list->obj);
+			intersects_cylinder_body(parent_ray, &child_ray, list->obj);
 		}
 		list = list->next;
 	}
