@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/23 14:40:26 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/24 09:38:49 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static void	ft_parsing_check(t_pars **pars, char *line)
 {
-	if (line[0] == 's' && line[1] != 'p' && (line[2] != ' ' && line[2] == '\t'))
+	if (line[0] == 's' && (line[1] != 'p' || (line[2] != ' '
+				|| line[2] == '\t')))
 		pars_error("Error: Invalid identifier 2\n", pars);
-	else if (line[0] == 'p' && line[1] != 'l' && (line[2] != ' '
-			&& line[2] == '\t'))
+	else if (line[0] == 'p' && (line[1] != 'l' || (line[2] != ' '
+				|| line[2] == '\t')))
 		pars_error("Error: Invalid identifier 3\n", pars);
-	else if (line[0] == 'c' && line[1] != 'y' && (line[2] != ' '
-			&& line[2] == '\t'))
+	else if (line[0] == 'c' || (line[1] != 'y' || (line[2] != ' '
+				&& line[2] == '\t')))
 		pars_error("Error: Invalid identifier 4\n", pars);
 	else if (!ft_isalpha(line[0]) && line[1] != ' ' && line[1] != '\t')
 		pars_error("Error: Invalid identifier 1\n", pars);
