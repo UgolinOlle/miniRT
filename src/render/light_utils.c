@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:50:01 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/23 16:19:31 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 21:49:14 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	calc_plane_normal(t_light *light, t_intersect *closest)
 {
 	t_vec	temp;
 
-	create_vector(&light->normal, 0, 1, 0);
+	create_vector(&light->normal, 0, 0, 1);
 	if (closest->object.is_transformed == TRUE)
 	{
 		matrix_by_t_vec(closest->object.inv_trans, light->normal, &temp, 4);
@@ -94,8 +94,8 @@ void	is_point_in_shadow(t_light *light, t_mlx *mlx)
 	normalize(temp, &shadow_ray.dir);
 	scalar_mult(light->normal, EPSILON * 2, &temp);
 	add(light->point, temp, &shadow_ray.og);
-	if (find_intersection(&shadow_ray, mlx) == TRUE \
-	&& shadow_ray.closest->dist < light_to_point_dist)
+	if (find_intersection(&shadow_ray, mlx) == TRUE\
+		&& shadow_ray.closest->dist < light_to_point_dist)
 		light->is_shadow = TRUE;
 	clean_ray(&shadow_ray);
 }

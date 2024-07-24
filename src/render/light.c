@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:04:22 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:50:26 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 22:00:10 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,23 @@ void	compute_final_color(t_light light, t_obj obj, t_ray *ray)
 	normalize(light.dir, &light.dir);
 	scalar_mult(base_color, light.ambient, &ray->color);
 	dot = dot_product(light.dir, light.normal);
+	//printf("\nFIRST COLOR:");
+	//if (obj.type == PLANE)
+	//	print_t_vec(ray->color);
 	if (dot < 0 || light.is_shadow == TRUE)
 		return ;
 	scalar_mult(base_color, (light.diffuse * dot), &temp);
 	add(ray->color, temp, &ray->color);
 	calc_light_reflection(light.dir, light.normal, &light.reflect);
 	dot = dot_product(light.reflect, light.eye);
+	//printf("SECOND COLOR:");
+	//if (obj.type == PLANE)
+	//	print_t_vec(ray->color);
 	if (dot <= 0)
 		return ;
 	scalar_mult(light.color, (pow(dot, light.shine) * light.specular), &temp);
 	add(ray->color, temp, &ray->color);
+	//printf("THIRD COLOR:");
+	//if (obj.type == PLANE)
+	//	print_t_vec(ray->color);
 }
