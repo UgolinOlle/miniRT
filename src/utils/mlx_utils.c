@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:51:14 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 20:55:09 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 17:21:11 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	init_light(t_mlx *mlx)
 void	initialize_mlx(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
-	mlx->win_size[X] = 800;
-	mlx->win_size[Y] = 400;
+	mlx->win_size[X] = 1920 / 4;
+	mlx->win_size[Y] = 1500 / 4;
 	mlx->win = mlx_new_window(mlx->mlx, \
 	mlx->win_size[X], mlx->win_size[Y], "TEST");
 	mlx->image.img = mlx_new_image(mlx->mlx, \

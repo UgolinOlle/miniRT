@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adds.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:55:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 17:26:00 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/24 17:22:22 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	add_pln_lexer(t_elem element, t_mlx *mlx)
 	create_tupple(&pl.og, 0, 0, 0);
 	scalar_mult(element.color_range255, (1.0f / 255.0f), &pl.color);
 	total = -1;
-	lex_transf_obj(&pl, element, &mt, &total);
 	rotate_object(&mt, &total, element);
+	lex_transf_obj(&pl, element, &mt, &total); //changed order ..
 	if (++total > 0)
 		transform_object(mt, total, &pl);
 	add_obj_to_list(pl, &mlx->obj_list);
@@ -72,10 +72,11 @@ void	add_cyl_lexer(t_elem element, t_mlx *mlx)
 	cyl.min = cyl.max * -1.0f;
 	scalar_mult(element.color_range255, (1.0f / 255.0f), &cyl.color);
 	total = -1;
-	lex_transf_obj(&cyl, element, &mt, &total);
 	rotate_object(&mt, &total, element);
+	lex_transf_obj(&cyl, element, &mt, &total);
 	if (++total > 0)
 		transform_object(mt, total, &cyl);
+	print_matrix(cyl.mt_trans, 4);
 	add_obj_to_list(cyl, &mlx->obj_list);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_other.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/23 14:48:14 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/24 12:40:32 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,25 @@ void	add_sphere_parsing(t_pars **pars, char *line)
 	add_element_to_pars_list(elem, pars);
 }
 
+
+int	find_plane(t_elem elem, t_pars **pars){
+	t_pars *temp = *pars;
+	int i;
+
+	if (pars == NULL)
+		return (0);
+	while (temp){
+		if (temp->element.type == PLANE){
+			i = -1;
+			while (++i < 3){
+				if (elem.orientation[i] == 1 && temp->element.orientation[i] == 1 && elem.center[i] == temp->element.center[i])
+					return (1);
+			}
+		}
+		temp = temp->next;
+	}
+	return (0);
+}
 // PLANE
 // pl 0,0,-20 0,0,1 255,255,255
 void	add_plane_parsing(t_pars **pars, char *line)
@@ -107,5 +126,9 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	create_tupple(&elem.color_range255, ft_atoi(tokens[6]), ft_atoi(tokens[7]),
 		ft_atoi(tokens[8]));
 	check_limit_color(elem.color_range255, pars);
+	if (find_plane(elem, pars) == 1){
+		printf("SKIPPING PLANE!	\n");		
+		return ;
+	}
 	add_element_to_pars_list(elem, pars);
 }
