@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:33:59 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/23 14:48:35 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/26 16:11:04 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	check_limit_value(int type, float value, t_pars **pars)
 void	pars_error(char *error_message, t_pars **par)
 {
 	t_pars	*temp;
+	t_pars	*next;
 	int		i;
 
 	i = -1;
@@ -48,8 +49,9 @@ void	pars_error(char *error_message, t_pars **par)
 	while (*par)
 	{
 		temp = *par;
-		free(*par);
-		*par = temp->next;
+		next = temp->next;
+		free(temp);
+		*par = next;
 	}
 	exit(EXIT_FAILURE);
 }

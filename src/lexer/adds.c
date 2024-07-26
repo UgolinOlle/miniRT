@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adds.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:55:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/24 17:22:22 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:13:12 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	add_cyl_lexer(t_elem element, t_mlx *mlx)
 	lex_transf_obj(&cyl, element, &mt, &total);
 	if (++total > 0)
 		transform_object(mt, total, &cyl);
-	print_matrix(cyl.mt_trans, 4);
 	add_obj_to_list(cyl, &mlx->obj_list);
 }
 
