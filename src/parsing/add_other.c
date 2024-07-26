@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_other.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/24 22:08:24 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/26 17:00:55 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,7 @@ void	add_cam_parsing(t_pars **pars, char *line)
 		ft_parse_vector(&tokens[0], elem.center);
 	else
 		pars_error("Error: Missing camera center\n", pars);
-	if (tokens[2])
-	{
-		ft_parse_vector(&tokens[3], elem.orientation);
-		len = sqrtf(dot_product(elem.orientation, elem.orientation));
-		if (len > 1 + EPSILON || len < 1 - EPSILON)
-			pars_error("Camera orientation not normalised\n", pars);
-	}
-	else
-		pars_error("Error: Missing camera orientation\n", pars);
-	if (tokens[5])
-		elem.fov_in_deg = ft_atoi(tokens[6]);
-	else
-		pars_error("Error: Missing camera field of view\n", pars);
+	ft_check_orientation(tokens, &elem, pars, &len);
 	check_limit_value(CAMERA, elem.fov_in_deg, pars);
 	if (elem.fov_in_deg < 0 + EPSILON)
 		elem.fov_in_deg += EPSILON;
@@ -89,18 +77,24 @@ void	add_sphere_parsing(t_pars **pars, char *line)
 	add_element_to_pars_list(elem, pars);
 }
 
+int	find_plane(t_elem elem, t_pars **pars)
+{
+	t_pars	*temp;
+	int		i;
 
-int	find_plane(t_elem elem, t_pars **pars){
-	t_pars *temp = *pars;
-	int i;
-
+	temp = *pars;
 	if (pars == NULL)
 		return (0);
-	while (temp){
-		if (temp->element.type == PLANE){
+	while (temp)
+	{
+		if (temp->element.type == PLANE)
+		{
 			i = -1;
-			while (++i < 3){
-				if (elem.orientation[i] == 1 && temp->element.orientation[i] == 1 && elem.center[i] == temp->element.center[i])
+			while (++i < 3)
+			{
+				if (elem.orientation[i] == 1
+					&& temp->element.orientation[i] == 1
+					&& elem.center[i] == temp->element.center[i])
 					return (1);
 			}
 		}
@@ -108,6 +102,7 @@ int	find_plane(t_elem elem, t_pars **pars){
 	}
 	return (0);
 }
+
 // PLANE
 // pl 0,0,-20 0,0,1 255,255,255
 void	add_plane_parsing(t_pars **pars, char *line)
@@ -120,20 +115,15 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	ft_split_tokens(line + 3, tokens, 9);
 	ft_parse_vector(&tokens[0], elem.center);
 	ft_parse_vector(&tokens[3], elem.orientation);
-	/*if (elem.orientation[0] < 1)
-		elem.orientation[0] *= -1;
-	if (elem.orientation[1] < 1)
-		elem.orientation[1] *= -1;
-	if (elem.orientation[2] < 1)
-		elem.orientation[2] *= -1;*/
 	len = sqrtf(dot_product(elem.orientation, elem.orientation));
 	if (len > 1 + EPSILON || len < 1 - EPSILON)
 		pars_error("Plane orientation not normalised\n", pars);
 	create_tupple(&elem.color_range255, ft_atoi(tokens[6]), ft_atoi(tokens[7]),
 		ft_atoi(tokens[8]));
 	check_limit_color(elem.color_range255, pars);
-	if (find_plane(elem, pars) == 1){
-		printf("SKIPPING PLANE!	\n");		
+	if (find_plane(elem, pars) == 1)
+	{
+		printf("SKIPPING PLANE!	\n");
 		return ;
 	}
 	add_element_to_pars_list(elem, pars);

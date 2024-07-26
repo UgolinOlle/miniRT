@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:50:01 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/24 21:49:14 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:15:43 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	calc_sph_normal(t_light *light, t_intersect *closest)
 		substract(light->point, closest->object.og, &light->normal);
 	else
 	{
-		matrix_by_t_vec(closest->object.inv_trans, \
-		light->point, &child_point, 4);
+		matrix_by_t_vec(closest->object.inv_trans, light->point, &child_point,
+			4);
 		substract(child_point, closest->object.og, &child_normal);
 		transpose(closest->object.inv_trans, &back_to_parent, 4);
 		matrix_by_t_vec(back_to_parent, child_normal, &light->normal, 4);
@@ -94,7 +94,7 @@ void	is_point_in_shadow(t_light *light, t_mlx *mlx)
 	normalize(temp, &shadow_ray.dir);
 	scalar_mult(light->normal, EPSILON * 2, &temp);
 	add(light->point, temp, &shadow_ray.og);
-	if (find_intersection(&shadow_ray, mlx) == TRUE\
+	if (find_intersection(&shadow_ray, mlx) == TRUE
 		&& shadow_ray.closest->dist < light_to_point_dist)
 		light->is_shadow = TRUE;
 	clean_ray(&shadow_ray);

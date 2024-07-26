@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:11:47 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/23 14:48:01 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/26 16:51:37 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void	add_element_to_pars_list(t_elem elem, t_pars **pars)
 
 	new = malloc(sizeof(t_pars));
 	if (!new)
-	{
-		printf("malloc error\n");
 		return ;
-	}
 	new->element = elem;
 	new->next = NULL;
 	list = *pars;
@@ -63,26 +60,18 @@ void	ft_split_tokens(char *str, char **tokens, int max_tokens)
 	char		*token;
 	const char	*delim;
 
-	i = 0;
+	i = -1;
 	delim = " \t,";
 	token = ft_find_next_token(str, delim);
-	while (i < max_tokens && token != NULL)
+	while (++i < max_tokens && token != NULL)
 	{
 		j = 0;
-		while (token[++j] != '\0')
-			if (ft_isalpha(token[j]) && token[j] != ',' && token[j] != '.'
-				&& token[j] != ' ')
-				pars_error("Error: Invalid tokens\n", NULL);
+		ft_validation_tokens(token, &j);
 		tokens[i] = token;
 		str = token;
 		while (*str && !ft_strchr(delim, *str))
 			str++;
-		if (*str)
-		{
-			*str = '\0';
-			str++;
-		}
-		i++;
+		str = ft_close_str(str);
 		token = ft_find_next_token(str, delim);
 	}
 	while (i < max_tokens)

@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:55:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/26 16:13:12 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/26 16:40:40 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	add_cam_lexer(t_elem element, t_mlx *mlx)
 {
 	static int	added = 0;
+
 	if (added == 1)
 		return ;
 	cam_transform(&mlx->cam, element.orientation, element.center);
@@ -53,7 +54,7 @@ void	add_pln_lexer(t_elem element, t_mlx *mlx)
 	scalar_mult(element.color_range255, (1.0f / 255.0f), &pl.color);
 	total = -1;
 	rotate_object(&mt, &total, element);
-	lex_transf_obj(&pl, element, &mt, &total); //changed order ..
+	lex_transf_obj(&pl, element, &mt, &total);
 	if (++total > 0)
 		transform_object(mt, total, &pl);
 	add_obj_to_list(pl, &mlx->obj_list);
@@ -79,30 +80,26 @@ void	add_cyl_lexer(t_elem element, t_mlx *mlx)
 	add_obj_to_list(cyl, &mlx->obj_list);
 }
 
-void	add_light_lexer(t_elem element, t_light	*light)
+void	add_light_lexer(t_elem element, t_light *light)
 {
-	static	int	added[3];
+	static int	added[3];
 
+	if (added[element.type - 4] == 1)
+		return ;
 	if (element.type == AMBIENT)
 	{
-		if (added[0] == 1)
-			return ;
 		scalar_mult(element.color_range255, (1.0f / 255.0f), &light->color);
 		light->ambient = element.brightness;
 		added[0] = 1;
 	}
 	else if (element.type == DIFFUSE)
 	{
-		if (added[1] == 1)
-			return ;
 		copy_t_vec(&light->og, element.center);
 		light->diffuse = element.brightness;
 		added[1] = 1;
 	}
 	else if (element.type == SPECULAR)
 	{
-		if (added[2] == 1)
-			return ;
 		light->specular = element.brightness;
 		light->shine = element.shine;
 		added[2] = 1;

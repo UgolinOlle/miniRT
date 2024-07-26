@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:11:41 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/22 21:34:06 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/26 17:01:24 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,17 @@ void				add_cylinder_parsing(t_pars **pars, char *line);
 void				add_sphere_parsing(t_pars **pars, char *line);
 void				add_plane_parsing(t_pars **pars, char *line);
 
-// -- Add utils
+// -- Utils
 void				ft_parse_vector(char **str, t_vec vec);
 void				ft_split_tokens(char *line, char *tokens[], int max_tokens);
 void				add_element_to_pars_list(t_elem elem, t_pars **pars);
 char				*ft_strtok(char *str, const char *delim);
+
+// -- Utils 2
+void				ft_validation_tokens(char *token, int *j);
+char				*ft_close_str(char *str);
+void				ft_check_orientation(char *tokens[7], t_elem *elem,
+						t_pars **pars, float *len);
 
 // -- Error handling
 void				check_limit_value(int type, float value, t_pars **pars);
