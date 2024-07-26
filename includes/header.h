@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:40:31 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 13:16:27 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/26 16:12:24 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@
 # include "scene.h"
 # include "parsing.h"
 # include "lexer.h"
-//delete debug!
-# include "debug.h"
 
 # define TRUE 1
 # define FALSE 0
