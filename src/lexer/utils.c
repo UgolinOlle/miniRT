@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:40:50 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 13:14:07 by arturo           ###   ########.fr       */
+/*   Updated: 2024/07/28 19:44:26 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ void	lex_transf_obj(t_obj *obj, t_elem e, t_mtrx (*mt)[MAX_TRANSF], int *ptr)
 
 	obj->is_transformed = FALSE;
 	total = *ptr;
-	if (e.center[X] != 0 || e.center[Y] != 0 || e.center[Z] != 0)
-		translation(&(*mt)[++total], e.center[X], e.center[Y], e.center[Z]);
 	if ((e.type == SPHERE || e.type == CYLINDER) && e.diameter != 2)
 		scalar(&(*mt)[++total], e.diameter / 2.0f, e.diameter / 2.0f, \
 		e.diameter / 2.0f);
+	if (e.type == SPHERE)
+		scalar_mult(e.center, -1, &e.center);
+	if (e.center[X] != 0 || e.center[Y] != 0 || e.center[Z] != 0)
+		translation(&(*mt)[++total], e.center[X], e.center[Y], e.center[Z]);
 	*ptr = total;
 }
 

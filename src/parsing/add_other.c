@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_other.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/26 17:00:55 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/28 19:44:18 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,6 @@ void	add_plane_parsing(t_pars **pars, char *line)
 		ft_atoi(tokens[8]));
 	check_limit_color(elem.color_range255, pars);
 	if (find_plane(elem, pars) == 1)
-	{
-		printf("SKIPPING PLANE!	\n");
 		return ;
-	}
 	add_element_to_pars_list(elem, pars);
 }

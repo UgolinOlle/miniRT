@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adds.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:55:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/26 16:40:40 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/28 19:37:08 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	add_cyl_lexer(t_elem element, t_mlx *mlx)
 	cyl.type = CYLINDER;
 	create_tupple(&cyl.og, 0, 0, 0);
 	cyl.r = 1;
+	element.height /= (element.diameter / 2);
 	cyl.max = element.height / 2.0f;
 	cyl.min = cyl.max * -1.0f;
 	scalar_mult(element.color_range255, (1.0f / 255.0f), &cyl.color);
