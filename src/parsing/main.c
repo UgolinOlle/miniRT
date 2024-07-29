@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/26 16:16:20 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/29 18:02:02 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,45 @@ static void	ft_parsing_check(t_pars **pars, char *line)
 		pars_error("Error: Invalid identifier 1\n", pars);
 }
 
+static void	ft_parsing_values(t_pars **pars, char *line)
+{
+	int		expected_values;
+	int		count;
+	char	*token;
+
+	expected_values = 0;
+	if (line[0] == 'C')
+		expected_values = 7;
+	else if (line[0] == 's' && line[1] == 'p')
+		expected_values = 7;
+	else if (line[0] == 'p' && line[1] == 'l')
+		expected_values = 7;
+	else if (line[0] == 'c' && line[1] == 'y')
+		expected_values = 7;
+	else if (line[0] == 'A')
+		expected_values = 7;
+	else if (line[0] == 'L')
+		expected_values = 7;
+	else if (line[0] == 'S')
+		expected_values = 7;
+	count = 0;
+	token = ft_strtok(line, " \t,");
+	while (token != NULL)
+	{
+		count++;
+		token = ft_strtok(NULL, " \t,");
+	}
+	if (count != expected_values)
+		pars_error("Error: Invalid number of values.\n", pars);
+}
+
 static void	parsing(t_pars **pars, char *line)
 {
 	if (line == NULL || line[0] == '\0' || line[0] == '#' || line[0] == '\n')
 		return ;
 	ft_parsing_check(pars, line);
+	ft_parsing_values(pars, line);
+	printf("line %s\n", line);
 	if (line[0] == 'C')
 		add_cam_parsing(pars, line);
 	else if (line[0] == 's' && line[1] == 'p')
