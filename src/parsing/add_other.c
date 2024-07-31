@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:38:31 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/31 21:30:01 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:18:01 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ void	add_plane_parsing(t_pars **pars, char *line)
 	elem.type = PLANE;
 	ft_split_tokens(line + 3, tokens, 9);
 	ft_parse_vector(&tokens[0], elem.center);
-	elem.center[2] += 0.0001;
 	ft_parse_vector(&tokens[3], elem.orientation);
 	len = sqrtf(dot_product(elem.orientation, elem.orientation));
 	if (len > 1 + EPSILON || len < 1 - EPSILON)

@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:50:01 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/31 21:56:42 by artclave         ###   ########.fr       */
+/*   Updated: 2024/07/31 21:59:47 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	is_point_in_shadow(t_light *light, t_mlx *mlx)
 	substract(light->og, light->point, &temp);
 	light_to_point_dist = sqrtf(dot_product(temp, temp));
 	normalize(temp, &shadow_ray.dir);
-	scalar_mult(light->normal, EPSILON * 1, &temp);
+	scalar_mult(light->normal, EPSILON * 2, &temp);
 	add(light->point, temp, &shadow_ray.og);
 	if (find_intersection(&shadow_ray, mlx) == TRUE
 		&& shadow_ray.closest->dist < light_to_point_dist - EPSILON)
