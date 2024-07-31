@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/08/01 01:09:43 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 01:14:33 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ static void	ft_multiple_tok_check(t_pars **pars, char *str)
 {
 	int		i;
 
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
-		if (!ft_isdigit(str[i]) && i > 1 && str[i] != ' ' && str[i] != '\t'\
-		&& str[i] != '.' && str[i] != '-' && str[i] != '+' && str[i] != ',')
+		if (!ft_isdigit(str[i]) && str[i] != '\n' && str[i] != ' ' \
+		&& str[i] != '\t' && str[i] != '.' && str[i] != '-' \
+		&& str[i] != '+' && str[i] != ',' && i > 1)
 			pars_error("Error: incorrect character (0)\n", pars);
 		if (str[i] == ',')
 		{
@@ -79,7 +80,6 @@ static void	ft_multiple_tok_check(t_pars **pars, char *str)
 			pars_error("Error: incorrect character (3)\n", pars);
 		else if (str[i] == '.' && (i == 0 || !ft_isdigit(str[i - 1])))
 			pars_error("Error: incorrect character (4)\n", pars);
-		i++;
 	}
 }
 
