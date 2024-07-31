@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/31 23:11:08 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 00:31:29 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,29 @@ static void	ft_parsing_values(t_pars **pars, char *line)
 static void	ft_multiple_tok_check(t_pars **pars, char *str)
 {
 	int		i;
-	char	check;
 
 	i = 0;
 	while (str[i])
 	{
-		check = str[i];
-		if (!(str[i] != '\n' && str[i] != ' ' && str[i] != '\t' \
-			&& !ft_isalpha(str[i]) && !ft_isdigit(str[i])) && i++ > 0)
+		if (str[i] != ',' && str[i] != '.' && str[i] != '+'\
+		&& str[i] != '-' && ++i > 0)
 			continue ;
-		if (str[i] == '.' && str[i + 1] && !ft_isdigit(str[i + 1]))
-			pars_error("Error: dots must be followed by a digit\n", pars);
-		if ((str[i] == '+' || str[i] == '-') && ((i == 0 || (str[i - 1] != ' '\
-		&& str[i - 1] != ',' && str[i - 1] != '\t')) || (!str[i + 1] \
-		|| !ft_isdigit(str[i + 1]))))
-			pars_error("Error: around signs '-' or '+'\n", pars);
+		if (str[i] == ',')
+		{
+			while (str[++i] && !ft_isdigit(str[i]))
+				if (str[i] != ' ' && str[i] != '\t' \
+				&& str[i] != '+' && str[i] != '-')
+					pars_error("Error: incorrect character (1)\n", pars);
+		}
+		else if ((str[i] == '+' || str[i] == '-' || str[i] == '.') && \
+		(!str[i + 1] || !ft_isdigit(str[i + 1])))
+			pars_error("Error: incorrect character (2)\n", pars);
+		else if ((str[i] == '+' || str[i] == '-') && (i == 0 || \
+		(str[i - 1] != ' ' && str[i - 1] != '\t' && str[i - 1] != ',')))
+			pars_error("Error: incorrect character (3)\n", pars);
+		else if (str[i] == '.' && (i == 0 || !ft_isdigit(str[i - 1])))
+			pars_error("Error: incorrect character (4)\n", pars);
 		i++;
-		while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-			i++;
-		if ((!str[i] && check != ',') || (!ft_isdigit(str[i]) && \
-		!((str[i] == '+' || str[i] == '-') && check == ',')))
-			pars_error("Error: incorrect character\n", pars);
 	}
 }
 
