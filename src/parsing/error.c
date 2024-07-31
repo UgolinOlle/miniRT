@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:33:59 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/26 16:11:04 by uolle            ###   ########.fr       */
+/*   Updated: 2024/08/01 01:02:47 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ void	pars_error(char *error_message, t_pars **par)
 		*par = next;
 	}
 	exit(EXIT_FAILURE);
+}
+
+int	line_is_empty(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+			return (0);
+	}
+	return (1);
 }
