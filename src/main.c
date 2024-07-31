@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:55:23 by uolle             #+#    #+#             */
-/*   Updated: 2024/07/31 16:14:19 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:29:50 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	main(int argc, char **argv)
 	}
 	pars = NULL;
 	parse_file(argv[1], &pars);
-	printf("Parsing ok\n");
 	initialize_mlx(&mlx);
 	lexer(&mlx, pars);
 	init_scene(&mlx);

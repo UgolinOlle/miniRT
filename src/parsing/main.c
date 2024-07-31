@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/31 16:18:10 by uolle            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:29:26 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ static void	ft_parsing_values(t_pars **pars, char *line)
 
 	tmp = ft_strdup(line);
 	expected_values = 0;
-	if (line[0] == 'C')
-		expected_values = 7;
-	else if (line[0] == 's' && line[1] == 'p')
+	if (line[0] == 'C' || line[0] == 'L' || (line[0] == 's' && line[1] == 'p'))
 		expected_values = 7;
 	else if (line[0] == 'p' && line[1] == 'l')
 		expected_values = 9;
@@ -45,8 +43,6 @@ static void	ft_parsing_values(t_pars **pars, char *line)
 		expected_values = 11;
 	else if (line[0] == 'A')
 		expected_values = 4;
-	else if (line[0] == 'L')
-		expected_values = 7;
 	count = -1;
 	token = ft_strtok(tmp, " \t,");
 	while (token != NULL)
@@ -65,40 +61,19 @@ static void	parsing(t_pars **pars, char *line)
 	ft_parsing_check(pars, line);
 	ft_parsing_values(pars, line);
 	if (line[0] == 'C')
-	{
 		add_cam_parsing(pars, line);
-		printf("Camera added\n");
-	}
 	else if (line[0] == 's' && line[1] == 'p')
-	{
 		add_sphere_parsing(pars, line);
-		printf("Sphere added\n");
-	}
 	else if (line[0] == 'p' && line[1] == 'l')
-	{
 		add_plane_parsing(pars, line);
-		printf("Plane added\n");
-	}
 	else if (line[0] == 'c' && line[1] == 'y')
-	{
 		add_cylinder_parsing(pars, line);
-		printf("Cylinder added\n");
-	}
 	else if (line[0] == 'A')
-	{
 		add_amb_light_parsing(pars, line);
-		printf("Ambient light added\n");
-	}
 	else if (line[0] == 'L')
-	{
 		add_dif_light_parsing(pars, line);
-		printf("Diffuse light added\n");
-	}
 	else if (line[0] == 'S')
-	{
 		add_spec_light_parsing(pars, line);
-		printf("Specular light added\n");
-	}
 	else
 		return ;
 }
