@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:51:14 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/24 17:21:11 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 09:24:52 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	initialize_mlx(t_mlx *mlx)
 	mlx->win_size[X] = 1920 / 4;
 	mlx->win_size[Y] = 1500 / 4;
 	mlx->win = mlx_new_window(mlx->mlx, \
-	mlx->win_size[X], mlx->win_size[Y], "TEST");
+	mlx->win_size[X], mlx->win_size[Y], "miniRT");
 	mlx->image.img = mlx_new_image(mlx->mlx, \
 	mlx->win_size[X], mlx->win_size[Y]);
 	mlx->image.address = mlx_get_data_addr(mlx->image.img, \
