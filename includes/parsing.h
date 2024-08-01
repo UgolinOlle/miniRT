@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:11:41 by arturo            #+#    #+#             */
-/*   Updated: 2024/08/01 01:00:03 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:38:32 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void				check_limit_value(int type, float value, t_pars **pars);
 void				check_limit_color(t_vec value, t_pars **pars);
 void				pars_error(char *error_message, t_pars **par);
 int					line_is_empty(char *str);
+void				ft_check_comma(t_pars **pars, char *str);
 
 #endif

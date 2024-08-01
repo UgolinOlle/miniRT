@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:33:59 by arturo            #+#    #+#             */
-/*   Updated: 2024/08/01 01:02:47 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:38:44 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,25 @@ int	line_is_empty(char *str)
 			return (0);
 	}
 	return (1);
+}
+
+void	ft_check_comma(t_pars **pars, char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] == ',')
+		{
+			while (str[++i] && !ft_isdigit(str[i]))
+			{
+				if (str[i] != ' ' && str[i] != '\t' \
+				&& str[i] != '+' && str[i] != '-')
+					pars_error("Error: incorrect character (1)\n", pars);
+				if (str[i] == '-' || str[i] == '+' || str[i] == ',')
+					break ;
+			}
+		}
+	}
 }

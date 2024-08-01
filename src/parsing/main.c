@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:46:44 by arturo            #+#    #+#             */
-/*   Updated: 2024/08/01 01:14:33 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/01 12:09:11 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,9 @@ static void	ft_parsing_values(t_pars **pars, char *line)
 		expected_values = 4;
 	count = -1;
 	token = ft_strtok(tmp, " \t,");
-	while (token != NULL)
-	{
-		count++;
+	while (token && line_is_empty(token) == 0 && ++count > -2)
 		token = ft_strtok(NULL, " \t,");
-	}
+	free(tmp);
 	if (count != expected_values)
 		pars_error("Error: Invalid number of values.\n", pars);
 }
@@ -65,13 +63,6 @@ static void	ft_multiple_tok_check(t_pars **pars, char *str)
 		&& str[i] != '\t' && str[i] != '.' && str[i] != '-' \
 		&& str[i] != '+' && str[i] != ',' && i > 1)
 			pars_error("Error: incorrect character (0)\n", pars);
-		if (str[i] == ',')
-		{
-			while (str[++i] && !ft_isdigit(str[i]))
-				if (str[i] != ' ' && str[i] != '\t' \
-				&& str[i] != '+' && str[i] != '-')
-					pars_error("Error: incorrect character (1)\n", pars);
-		}
 		else if ((str[i] == '+' || str[i] == '-' || str[i] == '.') && \
 		(!str[i + 1] || !ft_isdigit(str[i + 1])))
 			pars_error("Error: incorrect character (2)\n", pars);
@@ -88,6 +79,7 @@ static void	parsing(t_pars **pars, char *l)
 	if (l == NULL || l[0] == '\0' || l[0] == '#' || l[0] == '\n')
 		return ;
 	ft_multiple_tok_check(pars, l);
+	ft_check_comma(pars, l);
 	ft_parsing_check(pars, l);
 	ft_parsing_values(pars, l);
 	if (l[0] == 'C' && (l[1] == ' ' || l[1] == '\t'))
