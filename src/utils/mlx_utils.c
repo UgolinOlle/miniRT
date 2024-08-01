@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 18:51:14 by arturo            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/08/01 09:24:52 by uolle            ###   ########.fr       */
-=======
-/*   Updated: 2024/08/01 07:04:19 by artclave         ###   ########.fr       */
->>>>>>> 6720a8d (fix(parsing): update parsing for random char)
+/*   Created: 2024/08/01 12:20:30 by artclave          #+#    #+#             */
+/*   Updated: 2024/08/01 12:20:34 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
