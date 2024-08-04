@@ -1,18 +1,18 @@
-## ########################################################################## ##
-##                                                                            ##
-##                                                        :::      ::::::::   ##
-##   Makefile                                           :+:      :+:    :+:   ##
-##                                                    +:+ +:+         +:+     ##
-##   By: uolle <uolle>                              +#+  +:+       +#+        ##
-##                                                +#+#+#+#+#+   +#+           ##
-##   Created: 2024/07/26 17:46:08 by uolle             #+#    #+#             ##
-##   Updated: 2024/07/26 17:46:09 by uolle            ###   ########.fr       ##
-##                                                                            ##
-## ########################################################################## ##
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: artclave <artclave@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/26 17:46:08 by uolle             #+#    #+#              #
+#    Updated: 2024/08/04 01:48:23 by artclave         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 CC = cc
 CPPFLAGS = -Iincludes -Isrc -Ilibs/get_next_line/includes -Ilibs/libft/includes
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 LDLIBS = -lm
 LIB_DIR = libs
 
@@ -26,8 +26,8 @@ SRCS = src/lexer/adds.c \
 			 src/matrix/matrix_inversion.c \
        src/matrix/matrix_op.c \
        src/matrix/matrix_utils.c \
-       src/matrix/tranform.c \
-       src/matrix/transform_utils.c \
+       src/matrix/transform.c \
+	   src/matrix/rotations.c \
        src/parsing/add_light.c \
 			 src/parsing/add_other.c \
        src/parsing/error.c \

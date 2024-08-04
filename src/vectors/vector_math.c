@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_math.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:16:28 by arturo            #+#    #+#             */
-/*   Updated: 2024/05/30 12:53:30 by arturo           ###   ########.fr       */
+/*   Updated: 2024/08/02 20:06:05 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,17 @@ void	negate(t_vec vec, t_vec *result)
 	i = -1;
 	while (++i < 4)
 		(*result)[i] = zero[i] - vec[i];
+}
+
+bool	are_vecs_colinear(t_vec v1, t_vec v2)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 3)
+	{
+		if (v1[i] != v2[i])
+			return (FALSE);
+	}
+	return (TRUE);
 }

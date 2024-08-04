@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:53:55 by arturo            #+#    #+#             */
-/*   Updated: 2024/07/24 21:48:25 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:29:58 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ void	new_parent_ray(t_camera cam, t_ray *ray, float pixel[2])
 	target[Z] = 1;
 	create_tupple(&ray->og, 0, 0, 0);
 	substract(target, ray->og, &ray->dir);
-	if (cam.default_orient == FALSE)
-	{
-		matrix_by_t_vec(cam.inv_trans, ray->og, &temp, 4);
-		copy_t_vec(&ray->og, temp);
-		matrix_by_t_vec(cam.inv_trans, ray->dir, &temp, 4);
-		copy_t_vec(&ray->dir, temp);
-	}
+	matrix_by_t_vec(cam.inv_trans, ray->og, &temp, 4);
+	copy_t_vec(&ray->og, temp);
+	matrix_by_t_vec(cam.inv_trans, ray->dir, &temp, 4);
+	copy_t_vec(&ray->dir, temp);
 	normalize(ray->dir, &ray->dir);
 }
 
@@ -60,11 +57,11 @@ int	find_intersection(t_ray *parent_ray, t_mlx *mlx)
 	while (list)
 	{
 		transform_ray(parent_ray, &child_ray, list->obj);
-		if (list->obj.type == SPHERE)
+		if (list->obj->type == SPHERE)
 			intersects_sphere(parent_ray, &child_ray, list->obj);
-		else if (list->obj.type == PLANE)
+		else if (list->obj->type == PLANE)
 			intersects_plane(parent_ray, &child_ray, list->obj);
-		else if (list->obj.type == CYLINDER)
+		else if (list->obj->type == CYLINDER)
 		{
 			intersects_cylinder_caps(parent_ray, &child_ray, list->obj);
 			intersects_cylinder_body(parent_ray, &child_ray, list->obj);
@@ -73,16 +70,19 @@ int	find_intersection(t_ray *parent_ray, t_mlx *mlx)
 	}
 	if (parent_ray->closest)
 		return (TRUE);
-	return (FALSE);
+	return (-1);
 }
 
 void	get_pixel_color(t_mlx *mlx, float pixel[2])
 {
-	if (find_intersection(mlx->ray, mlx) == TRUE)
+	if (find_intersection(mlx->ray, mlx) != -1)
 	{
-		calc_light_vectors(mlx->light, *(mlx->ray), \
-		mlx->ray->closest);
-		is_point_in_shadow(mlx->light, mlx);
+		if (mlx->light->has_diffuse)
+		{
+			calc_light_vectors(mlx->light, *(mlx->ray), \
+			mlx->ray->closest);
+			is_point_in_shadow(mlx->light, mlx);
+		}
 		compute_final_color(*(mlx->light), mlx->ray->closest->object, \
 		mlx->ray);
 		ft_mlx_pixel_put(&mlx->image, (int)pixel[X], (int)pixel[Y], \
@@ -94,6 +94,12 @@ void	init_scene(t_mlx *mlx)
 {
 	float		pixel[2];
 
+	mlx->image.img = mlx_new_image(mlx->mlx, mlx->win_size[X], \
+	mlx->win_size[Y]);
+	mlx->image.address = mlx_get_data_addr(mlx->image.img, \
+	&mlx->image.bits_per_pixel, &mlx->image.line_length, &mlx->image.endian);
+	if (mlx->cam.exists == FALSE || mlx->light->exists == FALSE)
+		return ;
 	pixel[X] = -1;
 	while (++pixel[X] < mlx->win_size[X])
 	{
@@ -105,4 +111,5 @@ void	init_scene(t_mlx *mlx)
 			clean_ray(mlx->ray);
 		}
 	}
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->image.img, 0, 0);
 }

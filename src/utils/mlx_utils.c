@@ -6,7 +6,7 @@
 /*   By: artclave <artclave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:20:30 by artclave          #+#    #+#             */
-/*   Updated: 2024/08/01 12:20:34 by artclave         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:24:18 by artclave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void	init_light(t_mlx *mlx)
 	mlx->light->diffuse = 0;
 	mlx->light->specular = 0;
 	mlx->light->shine = 0;
+	mlx->light->exists = FALSE;
+	mlx->light->has_ambient = FALSE;
+	mlx->light->has_diffuse = FALSE;
+	mlx->light->ambient = 0;
 }
 
 void	initialize_mlx(t_mlx *mlx)
@@ -58,12 +62,11 @@ void	initialize_mlx(t_mlx *mlx)
 	mlx->win_size[Y] = 900;
 	mlx->win = mlx_new_window(mlx->mlx, \
 	mlx->win_size[X], mlx->win_size[Y], "miniRT");
-	mlx->image.img = mlx_new_image(mlx->mlx, \
-	mlx->win_size[X], mlx->win_size[Y]);
-	mlx->image.address = mlx_get_data_addr(mlx->image.img, \
-	&mlx->image.bits_per_pixel, &mlx->image.line_length, &mlx->image.endian);
 	mlx->obj_list = NULL;
+	mlx->cam.exists = FALSE;
+	mlx->is_selected = FALSE;
 	mlx->ray = malloc(sizeof(t_ray));
+	mlx->mouse_ray = malloc(sizeof(t_ray));
 	init_viewport(mlx);
 	init_light(mlx);
 }
